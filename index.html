@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DevTools - 免费在线开发者工具 | JSON格式化 Base64 SQL UUID 正则 时间戳 Diff Markdown</title>
+<meta name="description" content="免费在线开发者工具合集。JSON格式化验证CSV导出、图片Base64编码、SQL美化、Markdown转HTML、UUID/ULID生成、正则测试、时间戳转换、代码Diff对比。浏览器本地运行，数据不上传。">
+<meta name="keywords" content="json格式化,json验证,base64编码,图片转base64,sql格式化,markdown转html,uuid生成,正则测试,时间戳转换,diff对比,在线工具,开发者工具">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"DevTools","url":"https://matengtian.github.io/devtools/","description":"免费在线开发者工具合集","applicationCategory":"DeveloperApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0"}}</script>
+<style>
+:root{--bg:#fafbfc;--card:#fff;--text:#24292f;--sub:#57606a;--accent:#0969da;--hover:#0550ae;--border:#d0d7de;--green:#1a7f37;--danger:#cf222e;--radius:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:var(--card);border-bottom:1px solid var(--border);padding:12px 0;position:sticky;top:0;z-index:100}
+header .wrap{max-width:960px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.logo{font-size:20px;font-weight:700;text-decoration:none;color:var(--text)}.logo span{color:var(--accent)}
+nav{display:flex;gap:4px;flex-wrap:wrap;overflow-x:auto}
+nav a{color:var(--sub);text-decoration:none;font-size:13px;padding:6px 10px;border-radius:var(--radius);white-space:nowrap;cursor:pointer}
+nav a:hover,nav a.active{background:#f3f4f6;color:var(--accent)}
+main{max-width:960px;margin:0 auto;padding:20px 16px}
+.hero{text-align:center;padding:40px 16px}
+.hero h1{font-size:clamp(24px,5vw,36px);margin-bottom:12px}
+.hero p{color:var(--sub);font-size:16px;max-width:600px;margin:0 auto 24px}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding-bottom:40px}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.tool-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);border-color:var(--accent)}
+.tool-card h3{font-size:16px;margin-bottom:6px;color:var(--accent)}
+.tool-card p{font-size:13px;color:var(--sub)}
+.tool-card .tag{display:inline-block;font-size:11px;background:#ddf4ff;color:var(--accent);padding:2px 8px;border-radius:12px;margin-top:8px}
+.page{display:none}.page.active{display:block}
+.tool-page h1{font-size:26px;margin-bottom:8px}
+.tool-page .desc{color:var(--sub);font-size:15px;margin-bottom:20px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.panel label{display:block;font-size:12px;font-weight:600;color:var(--sub);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.panel textarea,.panel input[type="text"],.panel input[type="number"]{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);font-size:14px;font-family:"SF Mono","Fira Code",monospace;resize:vertical;min-height:120px;background:#fafbfc}
+.panel textarea:focus,.panel input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(9,105,218,.1);background:#fff}
+.panel .output{background:#f6f8fa;border:1px solid var(--border);border-radius:var(--radius);padding:14px;min-height:60px;font-family:"SF Mono","Fira Code",monospace;font-size:13px;white-space:pre-wrap;word-break:break-all;max-height:400px;overflow-y:auto}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:none;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--hover)}
+.btn-secondary{background:#f3f4f6;color:var(--text);border:1px solid var(--border)}.btn-secondary:hover{background:#e5e7eb}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-row{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
+.btn-back{color:var(--accent);cursor:pointer;font-size:14px;margin-bottom:16px;display:inline-block}
+.content-section h2{font-size:20px;margin:20px 0 10px;padding-top:20px;border-top:1px solid var(--border)}
+.content-section p,.content-section li{color:var(--sub);margin-bottom:8px;font-size:14px;line-height:1.7}
+.content-section ul{padding-left:20px}
+.content-section code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:12px}
+.related-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.related-tools a{color:var(--accent);text-decoration:none;font-size:13px;padding:6px 14px;background:#ddf4ff;border-radius:20px;cursor:pointer}
+.copy-toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#24292f;color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;z-index:999;opacity:0;transition:opacity .3s}
+.copy-toast.show{opacity:1}
+.error{color:var(--danger)}.success{color:var(--green)}
+.stats{font-size:12px;color:var(--sub);margin-top:8px}
+.drop-zone{border:2px dashed var(--border);border-radius:12px;padding:30px;text-align:center;cursor:pointer}.drop-zone:hover{border-color:var(--accent);background:#f0f6ff}
+.preview-img{max-width:200px;max-height:150px;border-radius:8px;border:1px solid var(--border);margin-top:8px}
+.diff-line{padding:2px 10px;font-family:"SF Mono","Fira Code",monospace;font-size:12px;white-space:pre-wrap}.diff-add{background:#dafbe1;color:#1a7f37}.diff-del{background:#ffebe9;color:#cf222e}.diff-same{color:var(--text)}.diff-header{background:#f6f8fa;padding:4px 10px;font-weight:600;font-size:11px;color:var(--sub)}
+footer{text-align:center;padding:30px;color:var(--sub);font-size:12px;border-top:1px solid var(--border);margin-top:30px}
+footer a{color:var(--sub)}
+.md-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.tool-grid{grid-template-columns:1fr}.md-grid{grid-template-columns:1fr}.hero{padding:30px 12px}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+<a href="#" class="logo" onclick="showPage('home')">Dev<span>Tools</span></a>
+<nav>
+<a class="active" onclick="showPage('home')">首页</a>
+<a onclick="showTool('json')">JSON</a>
+<a onclick="showTool('base64')">Base64</a>
+<a onclick="showTool('sql')">SQL</a>
+<a onclick="showTool('markdown')">MD</a>
+<a onclick="showTool('uuid')">UUID</a>
+<a onclick="showTool('regex')">正则</a>
+<a onclick="showTool('timestamp')">时间戳</a>
+<a onclick="showTool('diff')">Diff</a>
+</nav>
+</div></header>
+
+<main>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+<div class="hero">
+<h1>免费在线开发者工具</h1>
+<p>所有工具在浏览器本地运行，数据不上传服务器。每个工具专注解决一个具体问题。</p>
+</div>
+<div class="tool-grid">
+<div class="tool-card" onclick="showTool('json')"><h3>JSON 格式化 & 验证</h3><p>美化压缩JSON，语法错误检测，CSV导出。</p><span class="tag">JSON</span></div>
+<div class="tool-card" onclick="showTool('base64')"><h3>图片转 Base64</h3><p>拖拽图片即时编码，生成Data URI一键复制。</p><span class="tag">Base64</span></div>
+<div class="tool-card" onclick="showTool('sql')"><h3>SQL 格式化工具</h3><p>SQL美化缩进，关键字高亮，压缩一行。</p><span class="tag">SQL</span></div>
+<div class="tool-card" onclick="showTool('markdown')"><h3>Markdown 转 HTML</h3><p>实时预览，GFM表格/代码块支持，复制HTML。</p><span class="tag">MD</span></div>
+<div class="tool-card" onclick="showTool('uuid')"><h3>UUID / ULID 生成器</h3><p>批量生成唯一标识符，Crypto安全随机。</p><span class="tag">UUID</span></div>
+<div class="tool-card" onclick="showTool('regex')"><h3>正则表达式测试器</h3><p>实时匹配高亮，捕获组显示，标志位支持。</p><span class="tag">Regex</span></div>
+<div class="tool-card" onclick="showTool('timestamp')"><h3>时间戳在线转换</h3><p>Unix秒/毫秒与日期互转，实时更新。</p><span class="tag">时间</span></div>
+<div class="tool-card" onclick="showTool('diff')"><h3>代码差异对比</h3><p>逐行对比，增删改高亮，LCS算法。</p><span class="tag">Diff</span></div>
+</div>
+</div>
+
+<!-- JSON TOOL -->
+<div id="page-json" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>JSON 格式化 & 验证</h1>
+<p class="desc">美化压缩JSON，自动检测语法错误，支持JSON转CSV导出。所有处理在浏览器完成。</p>
+<div class="panel">
+<label>输入 JSON</label>
+<textarea id="jsonInput" placeholder='粘贴JSON内容...'></textarea>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="jsonFormat()">格式化</button>
+<button class="btn btn-secondary" onclick="jsonCompress()">压缩</button>
+<button class="btn btn-secondary" onclick="jsonValidate()">验证</button>
+<button class="btn btn-secondary" onclick="jsonToCSV()">转 CSV</button>
+<button class="btn btn-secondary" onclick="jsonClear()">清空</button>
+</div>
+<div class="output" id="jsonOutput" style="margin-top:12px"></div>
+<div class="stats" id="jsonStats"></div>
+</div>
+<div class="content-section">
+<h2>JSON 格式化工具</h2>
+<p>JSON（JavaScript Object Notation）是Web开发中最常用的数据交换格式。API返回的JSON通常是压缩在一行的，难以阅读。使用此工具可以一键展开为缩进清晰、易于阅读的格式。</p>
+<h2>常见场景</h2><ul><li>API调试：格式化服务器返回的JSON响应</li><li>配置文件：美化package.json等配置</li><li>数据导出：JSON数组转CSV用Excel打开</li><li>语法检查：快速定位逗号缺失、引号不匹配</li></ul>
+</div>
+</div></div>
+
+<!-- BASE64 TOOL -->
+<div id="page-base64" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>图片转 Base64 编码</h1>
+<p class="desc">拖拽或选择图片文件，即时生成Base64编码和Data URI。图片不上传，浏览器本地处理。</p>
+<div class="panel">
+<label class="drop-zone" id="dropZone"><p>📁 点击选择图片或拖拽到此处</p><p style="font-size:11px;color:#999">PNG · JPEG · WebP · SVG · GIF</p><input type="file" id="b64File" accept="image/*" style="display:none"></label>
+<div id="b64Preview" style="text-align:center"></div>
+<div style="margin-top:12px"><label>Base64 编码</label><div class="output" id="b64Output" style="word-break:break-all">选择图片后自动生成...</div></div>
+<div style="margin-top:12px"><label>Data URI</label><div class="output" id="b64Uri" style="word-break:break-all">选择图片后自动生成...</div></div>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="b64CopyUri()">复制 Data URI</button>
+<button class="btn btn-secondary" onclick="b64CopyRaw()">复制纯 Base64</button>
+</div>
+</div>
+</div></div>
+
+<!-- SQL TOOL -->
+<div id="page-sql" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>SQL 格式化 & 美化</h1>
+<p class="desc">将压缩的SQL展开为缩进清晰、关键字高亮的格式。支持MySQL/PostgreSQL/SQLite语法。</p>
+<div class="panel">
+<label>输入 SQL</label>
+<textarea id="sqlInput" placeholder="SELECT * FROM users WHERE active=1 ORDER BY id DESC LIMIT 10"></textarea>
+<div class="btn-row">
+<button class="btn btn-primary" onclick="sqlFormat()">格式化</button>
+<button class="btn btn-secondary" onclick="sqlCompress()">压缩</button>
+<button class="btn btn-secondary" onclick="sqlClear()">清空</button>
+</div>
+<div class="output" id="sqlOutput" style="margin-top:12px"></div>
+</div>
+</div></div>
+
+<!-- MARKDOWN TOOL -->
+<div id="page-markdown" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>Markdown 转 HTML</h1>
+<p class="desc">编辑Markdown实时预览。支持GFM表格、代码块、任务列表。</p>
+<div class="panel">
+<div class="md-grid">
+<div><label>Markdown</label><textarea id="mdInput" style="min-height:300px"># 标题\n\n**粗体** *斜体*\n\n- 列表项</textarea></div>
+<div><label>预览</label><div style="border:1px solid var(--border);border-radius:var(--radius);padding:14px;min-height:300px;background:#fff;overflow-y:auto" id="mdPreview"></div></div>
+</div>
+<div class="btn-row"><button class="btn btn-primary" onclick="mdCopyHTML()">复制 HTML</button></div>
+<div style="margin-top:12px"><label>HTML源码</label><div class="output" id="mdHTML" style="max-height:150px;font-size:12px"></div></div>
+</div>
+</div></div>
+
+<!-- UUID TOOL -->
+<div id="page-uuid" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>UUID / ULID 生成器</h1>
+<p class="desc">使用浏览器Crypto API生成密码学安全的随机标识符。</p>
+<div class="panel">
+<div class="btn-row">
+<button class="btn btn-primary" onclick="uuidGen()">UUID v4</button>
+<button class="btn btn-secondary" onclick="ulidGen()">ULID</button>
+<label style="font-size:12px;margin-left:12px">数量 <input type="number" id="uuidCount" value="5" min="1" max="50" style="width:55px;min-height:auto;padding:6px;font-family:inherit;font-size:13px"></label>
+<button class="btn btn-secondary" onclick="uuidCopy()">复制全部</button>
+</div>
+<div class="output" id="uuidOutput" style="margin-top:12px"></div>
+</div>
+</div></div>
+
+<!-- REGEX TOOL -->
+<div id="page-regex" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>正则表达式测试器</h1>
+<p class="desc">输入正则和测试文本，实时显示匹配结果和捕获组。</p>
+<div class="panel">
+<label>正则表达式</label>
+<div style="display:flex;gap:8px">
+<input type="text" id="rePattern" placeholder="\d{4}-\d{2}-\d{2}" style="min-height:auto;flex:1" oninput="reTest()">
+<select id="reFlags" style="padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius);font-size:13px" onchange="reTest()">
+<option value="g">g</option><option value="gi">gi</option><option value="gm">gm</option><option value="gim">gim</option><option value="gu">gu</option>
+</select>
+</div>
+<div style="margin-top:12px"><label>测试文本</label><textarea id="reText" oninput="reTest()">2025-06-15 会议\n2024-01-20 启动</textarea></div>
+<div class="output" id="reOutput" style="margin-top:12px;min-height:60px"></div>
+<div class="stats" id="reStats"></div>
+<div style="margin-top:16px;font-size:12px;color:var(--sub)">常用: <code>邮箱 [\w.%+-]+@[\w.-]+\.\w{2,}</code> · <code>手机 1[3-9]\d{9}</code> · <code>IP (\d{1,3}\.){3}\d{1,3}</code></div>
+</div>
+</div></div>
+
+<!-- TIMESTAMP TOOL -->
+<div id="page-timestamp" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>时间戳转换</h1>
+<p class="desc">Unix时间戳与日期时间互转，支持秒/毫秒精度，实时显示当前时间戳。</p>
+<div class="panel">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div><label>时间戳（秒）</label><input type="number" id="tsSec" placeholder="1700000000" oninput="tsFromSec()" style="min-height:auto"></div>
+<div><label>时间戳（毫秒）</label><input type="number" id="tsMs" placeholder="1700000000000" oninput="tsFromMs()" style="min-height:auto"></div>
+</div>
+<div style="margin-top:12px"><label>日期时间</label><input type="text" id="tsDate" oninput="tsFromDate()" style="min-height:auto"></div>
+<div class="btn-row"><button class="btn btn-secondary" onclick="tsNow()">当前时间</button><button class="btn btn-secondary" onclick="tsCopy()">复制时间戳</button></div>
+<div class="stats" id="tsNow" style="font-family:monospace;margin-top:12px"></div>
+</div>
+</div></div>
+
+<!-- DIFF TOOL -->
+<div id="page-diff" class="page"><div class="tool-page">
+<span class="btn-back" onclick="showPage('home')">← 返回首页</span>
+<h1>文本差异对比</h1>
+<p class="desc">粘贴两端文本逐行对比，增删改高亮显示。</p>
+<div class="panel">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div><label>原始文本</label><textarea id="diffOld" oninput="diffRun()">line 1\nline 2\nline 3</textarea></div>
+<div><label>新文本</label><textarea id="diffNew" oninput="diffRun()">line 1\nline 2 modified\nline 4</textarea></div>
+</div>
+<div class="btn-row"><button class="btn btn-primary" onclick="diffRun()">对比</button><button class="btn btn-secondary" onclick="diffSwap()">交换</button></div>
+<div class="output" id="diffOutput" style="margin-top:12px;padding:0;font-size:12px;max-height:400px;overflow-y:auto"></div>
+</div>
+</div></div>
+
+</main>
+
+<footer>所有工具浏览器本地运行 · 数据不上传 · 无追踪 · 无广告</footer>
+<div id="toast" class="copy-toast"></div>
+
+<script>
+// Nav
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));var el=document.getElementById('page-'+name);if(el)el.classList.add('active');document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));var links=document.querySelectorAll('nav a');for(var i=0;i<links.length;i++){if(links[i].textContent==='首页'&&name==='home')links[i].classList.add('active')}window.scrollTo(0,0)}
+function showTool(name){showPage(name);var tid='';if(name==='json'){tid='jsonInput';jsonFormat()}else if(name==='base64'){}else if(name==='sql'){tid='sqlInput';sqlFormat()}else if(name==='markdown'){tid='mdInput';mdRender()}else if(name==='uuid'){tid='uuidCount';uuidGen()}else if(name==='regex'){tid='rePattern'}else if(name==='timestamp'){tid='tsSec';tsNow()}else if(name==='diff'){tid='diffOld';diffRun()}if(tid)try{document.getElementById(tid).focus()}catch(e){}}
+
+// Toast
+function toast(m){var e=document.getElementById('toast');e.textContent=m;e.classList.add('show');setTimeout(function(){e.classList.remove('show')},1800)}
+function copyText(t){navigator.clipboard.writeText(t).then(function(){toast('已复制')}).catch(function(){toast('复制失败')})}
+
+// Debounce
+function debounce(fn,d){var t;return function(){clearTimeout(t);t=setTimeout(fn,d)}}
+
+// JSON
+function jsonParse(){try{return JSON.parse(document.getElementById('jsonInput').value)}catch(e){return null}}
+function jsonFormat(){var o=jsonParse();var el=document.getElementById('jsonOutput');if(o){el.innerHTML=syntaxHL(JSON.stringify(o,null,2));document.getElementById('jsonStats').innerHTML='<span class="success">✓ JSON有效</span> | '+document.getElementById('jsonInput').value.length+'字符'}else{el.innerHTML='<span class="error">JSON解析错误</span>'}}
+function jsonCompress(){var o=jsonParse();if(o){document.getElementById('jsonOutput').textContent=JSON.stringify(o)}}
+function jsonValidate(){var o=jsonParse();document.getElementById('jsonOutput').innerHTML=o?'<span class="success">✓ 格式正确</span>':'<span class="error">✗ 格式错误</span>'}
+function jsonToCSV(){var o=jsonParse();if(!o)return;var arr=Array.isArray(o)?o:[o];if(!arr.length)return;var keys=Object.keys(arr[0]);var csv=keys.join(',')+'\n';arr.forEach(function(r){csv+=keys.map(function(k){var v=r[k];if(v===null||v===undefined)return'';v=String(v);return v.includes(',')||v.includes('"')?'"'+v.replace(/"/g,'""')+'"':v}).join(',')+'\n'});document.getElementById('jsonOutput').textContent=csv;document.getElementById('jsonStats').innerHTML='<span class="success">✓ CSV导出</span> | '+arr.length+'行'}
+function jsonClear(){document.getElementById('jsonInput').value='';document.getElementById('jsonOutput').textContent='';document.getElementById('jsonStats').textContent=''}
+function syntaxHL(j){return j.replace(/("(\\u[a-fA-F0-9]{4}|\\[^u]|[^"\\])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,function(m){var c='#6e7781';if(/^"/.test(m))c=/:$/.test(m)?'#0550ae':'#0a3069';else if(/true|false/.test(m))c='#8250df';else if(/null/.test(m))c='#6e7781';else c='#cf222e';return'<span style="color:'+c+'">'+m+'</span>'})}
+
+// Base64
+var b64DataUri='',b64Raw='';
+function b64Handle(f){if(!f)return;var r=new FileReader();r.onload=function(e){b64Raw=e.target.result.split(',')[1];b64DataUri=e.target.result;document.getElementById('b64Output').textContent=b64Raw;document.getElementById('b64Uri').textContent=b64DataUri;var p=document.getElementById('b64Preview');if(f.type.startsWith('image/'))p.innerHTML='<img src="'+b64DataUri+'" class="preview-img"><p style="font-size:11px;color:var(--sub)">'+f.name+' ('+(f.size/1024).toFixed(1)+' KB)</p>'};r.readAsDataURL(f)}
+document.getElementById('b64File').addEventListener('change',function(e){b64Handle(e.target.files[0])});
+var dz=document.getElementById('dropZone');dz.addEventListener('click',function(){document.getElementById('b64File').click()});dz.addEventListener('dragover',function(e){e.preventDefault();dz.style.borderColor='var(--accent)'});dz.addEventListener('dragleave',function(){dz.style.borderColor='var(--border)'});dz.addEventListener('drop',function(e){e.preventDefault();dz.style.borderColor='var(--border)';b64Handle(e.dataTransfer.files[0])});
+function b64CopyUri(){b64DataUri?copyText(b64DataUri):toast('请先选图片')}
+function b64CopyRaw(){b64Raw?copyText(b64Raw):toast('请先选图片')}
+
+// SQL
+var SQL_KW=['SELECT','FROM','WHERE','AND','OR','NOT','IN','LIKE','BETWEEN','JOIN','LEFT JOIN','RIGHT JOIN','INNER JOIN','ON','AS','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET','UNION','DISTINCT','INSERT INTO','VALUES','UPDATE','SET','DELETE','CREATE TABLE','ALTER TABLE','DROP','INDEX','PRIMARY KEY','NULL','DEFAULT','CASE','WHEN','THEN','ELSE','END','COUNT','SUM','AVG','MAX','MIN','ASC','DESC','IS','EXISTS'];
+function sqlFormat(){var s=document.getElementById('sqlInput').value.trim().replace(/\s+/g,' ');SQL_KW.forEach(function(k){s=s.replace(new RegExp('\\b'+k.replace(/\s/g,'\\s')+'\\b','gi'),k.toUpperCase())});var breaks=['SELECT','FROM','WHERE','ORDER BY','GROUP BY','HAVING','LIMIT','UNION','INSERT INTO','VALUES','UPDATE','SET','DELETE'];breaks.forEach(function(b){s=s.replace(new RegExp('\\b'+b+'\\b','gi'),'\n'+b.toUpperCase())});s=s.replace(/\bAND\b/gi,'\n  AND');s=s.replace(/\bOR\b/gi,'\n  OR');s=s.replace(/\b(LEFT|RIGHT|INNER|OUTER)?\s*JOIN\b/gi,'\n$1 JOIN');s=s.replace(/,/g,',\n  ');s=s.replace(/\n{2,}/g,'\n').trim();var out=document.getElementById('sqlOutput');out.innerHTML=s.replace(/('(?:[^'\\]|\\.)*')/g,'<span style="color:#0a3069">$1</span>').replace(/(\d+\.?\d*)/g,'<span style="color:#cf222e">$1</span>');SQL_KW.forEach(function(k){if(k.indexOf(' ')===-1){out.innerHTML=out.innerHTML.replace(new RegExp('\\b('+k+')\\b','gi'),'<span style="color:#0550ae;font-weight:600">$1</span>')}})}
+function sqlCompress(){document.getElementById('sqlOutput').textContent=document.getElementById('sqlInput').value.replace(/\s+/g,' ').trim()}
+function sqlClear(){document.getElementById('sqlInput').value='';document.getElementById('sqlOutput').textContent=''}
+
+// Markdown
+function mdRender(){var t=document.getElementById('mdInput').value;t=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');t=t.replace(/^### (.+)$/gm,'<h3>$1</h3>');t=t.replace(/^## (.+)$/gm,'<h2>$1</h2>');t=t.replace(/^# (.+)$/gm,'<h1>$1</h1>');t=t.replace(/```(\w*)\n([\s\S]*?)```/g,'<pre><code>$2</code></pre>');t=t.replace(/`([^`]+)`/g,'<code>$1</code>');t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');t=t.replace(/\*(.+?)\*/g,'<em>$1</em>');t=t.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>');t=t.replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>');t=t.replace(/^- (.+)$/gm,'<li>$1</li>');t=t.replace(/((?:<li>.*<\/li>\n?)+)/g,'<ul>$1</ul>');t=t.replace(/\n\n/g,'</p><p>');t='<p>'+t+'</p>';document.getElementById('mdPreview').innerHTML=t;document.getElementById('mdHTML').textContent=t}
+function mdCopyHTML(){copyText(document.getElementById('mdHTML').textContent)}
+document.getElementById('mdInput').addEventListener('input',debounce(mdRender,200));
+
+// UUID
+function uuidv4(){return([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,function(c){return(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16)})}
+function ulid(){var t=Date.now().toString(32).toUpperCase();var r='';for(var i=0;i<16;i++)r+='0123456789ABCDEFGHJKMNPQRSTVWXYZ'[Math.floor(Math.random()*32)];return t+r}
+function uuidGen(){var n=parseInt(document.getElementById('uuidCount').value)||5;var a=[];for(var i=0;i<n;i++)a.push(uuidv4());document.getElementById('uuidOutput').textContent=a.join('\n')}
+function ulidGen(){var n=parseInt(document.getElementById('uuidCount').value)||5;var a=[];for(var i=0;i<n;i++)a.push(ulid());document.getElementById('uuidOutput').textContent=a.join('\n')}
+function uuidCopy(){copyText(document.getElementById('uuidOutput').textContent)}
+
+// Regex
+function reTest(){var p=document.getElementById('rePattern').value.trim();var t=document.getElementById('reText').value;var flags=document.getElementById('reFlags').value;var out=document.getElementById('reOutput');var stats=document.getElementById('reStats');if(!p){out.innerHTML='输入正则开始测试...';stats.textContent='';return}try{var re=new RegExp(p,flags);var matches=[],m;while((m=re.exec(t))!==null){matches.push({full:m[0],index:m.index,groups:m.slice(1)});if(!flags.includes('g'))break}if(matches.length===0){out.innerHTML='<span style="color:var(--sub)">无匹配</span>';stats.textContent=''}else{var html=t;for(var i=matches.length-1;i>=0;i--){var s=matches[i].index,e=s+matches[i].full.length;html=html.substring(0,s)+'<mark style="background:#fff3cd;padding:1px 0">'+html.substring(s,e)+'</mark>'+html.substring(e)}out.innerHTML=html;stats.innerHTML='<span class="success">✓ '+matches.length+'个匹配</span>';matches.forEach(function(m,i){stats.innerHTML+='<br>#'+(i+1)+': <code>'+m.full.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</code> (位置'+m.index+')';if(m.groups.length)stats.innerHTML+=' 捕获:['+m.groups.join(',')+']'})}}catch(e){out.innerHTML='<span class="error">正则语法错误: '+e.message+'</span>';stats.textContent=''}}
+
+// Timestamp
+function fmtDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+':'+String(d.getSeconds()).padStart(2,'0')}
+function tsFromSec(){var v=parseInt(document.getElementById('tsSec').value);if(v&&!isNaN(v)){var d=new Date(v*1000);document.getElementById('tsDate').value=fmtDate(d);document.getElementById('tsMs').value=v*1000}}
+function tsFromMs(){var v=parseInt(document.getElementById('tsMs').value);if(v&&!isNaN(v)){var d=new Date(v);document.getElementById('tsDate').value=fmtDate(d);document.getElementById('tsSec').value=Math.floor(v/1000)}}
+function tsFromDate(){var v=document.getElementById('tsDate').value;if(v){var d=new Date(v);if(!isNaN(d.getTime())){var s=Math.floor(d.getTime()/1000);document.getElementById('tsSec').value=s;document.getElementById('tsMs').value=d.getTime()}}}
+function tsNow(){var n=Date.now();document.getElementById('tsSec').value=Math.floor(n/1000);document.getElementById('tsMs').value=n;document.getElementById('tsDate').value=fmtDate(new Date())}
+function tsCopy(){copyText(document.getElementById('tsSec').value)}
+setInterval(function(){var n=Date.now();var el=document.getElementById('tsNow');if(el)el.textContent='当前: '+Math.floor(n/1000)+'秒 | '+n+'毫秒 | '+new Date().toISOString()},1000);
+
+// Diff
+function lcs(a,b){var m=a.length,n=b.length;var dp=[];for(var i=0;i<=m;i++)dp[i]=Array(n+1).fill(0);for(var i=1;i<=m;i++)for(var j=1;j<=n;j++)dp[i][j]=a[i-1]===b[j-1]?dp[i-1][j-1]+1:Math.max(dp[i-1][j],dp[i][j-1]);var r=[],i=m,j=n;while(i>0&&j>0){if(a[i-1]===b[j-1]){r.unshift({t:'same',l:a[i-1]});i--;j--}else if(dp[i-1][j]>dp[i][j-1]){r.unshift({t:'del',l:a[i-1]});i--}else{r.unshift({t:'add',l:b[j-1]});j--}}while(i>0){r.unshift({t:'del',l:a[i-1]});i--}while(j>0){r.unshift({t:'add',l:b[j-1]});j--}return r}
+function diffRun(){var a=document.getElementById('diffOld').value.split('\n');var b=document.getElementById('diffNew').value.split('\n');var d=lcs(a,b);var h='',na=0,nd=0;d.forEach(function(x){if(x.t==='add'){h+='<div class="diff-line diff-add">+ '+x.l.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';na++}else if(x.t==='del'){h+='<div class="diff-line diff-del">- '+x.l.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';nd++}else{h+='<div class="diff-line diff-same">  '+x.l.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>'}});document.getElementById('diffOutput').innerHTML='<div class="diff-header">+'+na+' 新增 | -'+nd+' 删除 | '+(d.length-na-nd)+' 不变</div>'+h}
+function diffSwap(){var o=document.getElementById('diffOld').value;document.getElementById('diffOld').value=document.getElementById('diffNew').value;document.getElementById('diffNew').value=o;diffRun()}
+
+// Init
+jsonFormat();sqlFormat();mdRender();uuidGen();tsNow();diffRun();
+reTest();
+</script>
+</body>
+</html>
